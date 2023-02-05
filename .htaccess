@@ -13,3 +13,7 @@ RewriteRule ^(.*)$ /public/$1
 #RewriteRule ^ index.php [L]
 RewriteRule ^(/)?$ public/index.php [L] 
 </IfModule>
+
+Header set Access-Control-Allow-Origin "*"
+Header set Access-Control-Allow-Headers "origin, x-requested-with, content-type"
+Header set Access-Control-Allow-Methods "PUT, GET, POST, DELETE, OPTIONS"
