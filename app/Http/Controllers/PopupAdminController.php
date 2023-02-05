@@ -57,34 +57,36 @@ class PopupAdminController extends Controller
             xml.setRequestHeader('Content-Type', 'application/x-www-form-url');
             xml.addEventListener('readystatechange', () => {
                 if (xml.readyState === 4 && xml.status === 200) {
-                    let change = document.querySelector('.test > span').innerHTML;
-                    if(Number(change) == 1){
-                        const xttp = new XMLHttpRequest();
-                        const url ='".$protocol.$_SERVER['HTTP_HOST']."/popupadmin/view_add/".$id."?view=1';
-                        const closePopup = document.querySelectorAll('.close-popup');
-    
-                        xttp.open('POST', url, true);
-                        xttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-                        xttp.addEventListener('readystatechange', () => {
-                            if(xttp.readyState === 4 && xttp.status === 200) {       
-                                console.log('POST запрос выполнен');
-                            }
-                        });
-                        xttp.send();
-    
-                        setTimeout(()=>{
-                            const popupModal = document.getElementById('popup_view');
-                            popupModal.classList.remove('fade');
-                            popupModal.style = 'display:block;background-color: rgb(128 128 128 / 40%);';
-                        },'10000');
-                            
-                        for(let i = 0; i < closePopup.length; i++){
-                            closePopup[i].addEventListener('click',() => {
-                                popupModal.classList.add('fade');
-                                popupModal.style = 'display:none';
+                    setTimeout(()=>{
+                        const change = xml.responseText;
+                        if(Number(change) == 1){
+                            const xttp = new XMLHttpRequest();
+                            const url ='".$protocol.$_SERVER['HTTP_HOST']."/popupadmin/view_add/".$id."?view=1';
+                            const closePopup = document.querySelectorAll('.close-popup');
+        
+                            xttp.open('POST', url, true);
+                            xttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+                            xttp.addEventListener('readystatechange', () => {
+                                if(xttp.readyState === 4 && xttp.status === 200) {       
+                                    console.log('POST запрос выполнен');
+                                }
                             });
+                            xttp.send();
+        
+                        
+                                const popupModal = document.getElementById('popup_view');
+                                popupModal.classList.remove('fade');
+                                popupModal.style = 'display:block;background-color: rgb(128 128 128 / 40%);';
+                            
+                                
+                            for(let i = 0; i < closePopup.length; i++){
+                                closePopup[i].addEventListener('click',() => {
+                                    popupModal.classList.add('fade');
+                                    popupModal.style = 'display:none';
+                                });
+                            }
                         }
-                    }
+                    },'10000');
                 }
             });
             xml.send();";
