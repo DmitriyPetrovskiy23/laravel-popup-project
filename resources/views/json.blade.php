@@ -1,0 +1,1 @@
+<div class="test"><span>{{$popup->popup_change}}</span></div>
