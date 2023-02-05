@@ -49,6 +49,7 @@ class PopupAdminController extends Controller
             main.innerHTML += `".$htmlPopup."`;
             let styleBootstrap = document.createElement('link');
             styleBootstrap.rel = 'stylesheet';
+            styleBootstrap.id = 'boots-style';
             styleBootstrap.href = '".$protocol.$_SERVER['HTTP_HOST']."/css/bootstrap.min.css?v=1';
             document.head.appendChild(styleBootstrap);
             const xml = new XMLHttpRequest();
@@ -83,10 +84,24 @@ class PopupAdminController extends Controller
                                 closePopup[i].addEventListener('click',() => {
                                     popupModal.classList.add('fade');
                                     popupModal.style = 'display:none';
+                                    let popupMy = document.querySelector('.modal_my');
+                                    let bootHead = document.getElementById('boots-style');
+                                    popupMy.remove();
+                                    bootHead.remove();
                                 });
                             }
+                        } else {
+                            let popupMy = document.querySelector('.modal_my');
+                            let bootHead = document.getElementById('boots-style');
+                            popupMy.remove();
+                            bootHead.remove();
                         }
                     },'10000');
+                } else if (xml.readyState != 4 && xml.status != 200){
+                    let popupMy = document.querySelector('.modal_my');
+                    let bootHead = document.getElementById('boots-style');
+                    popupMy.remove();
+                    bootHead.remove();
                 }
             });
             xml.send();";
