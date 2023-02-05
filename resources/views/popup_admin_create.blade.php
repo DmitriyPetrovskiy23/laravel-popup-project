@@ -47,7 +47,7 @@
                         </div>    
                     </div>
                     <div class="col-md-12">
-                        <button type="submit" class="btn btn-primary w-100">Запланировать</button>
+                        <button type="submit" class="btn_my btn_my-primary w-100">Запланировать</button>
                     </div>
                 </div>
             </div>

@@ -7,7 +7,7 @@
 <h3 class="text-center py-3">Админ-панель попапов</h3>
 @if($popups->count() == 0)
     <div class="col-12 d-flex justify-content-center align-items-center p-0" style="height:100vh">
-        <a role="button" href="{{route('popup_admin_create')}}" class="btn btn-primary w-100">Создать попап</a>
+        <a role="button" href="{{route('popup_admin_create')}}" class="btn_my btn_my-primary w-100">Создать попап</a>
     </div>
 @else
     @foreach($popups as $popup)
@@ -17,23 +17,23 @@
                     <span>{{$popup->popup_name}}</span>
                 </div>
                 <div class="col-2">
-                    <a role="button" href="{{route('popup_admin_view',$popup->id)}}" class="btn btn-primary w-100">Просмотреть попап</a>
+                    <a role="button" href="{{route('popup_admin_view',$popup->id)}}" class="btn_my btn_my-primary w-100">Просмотреть попап</a>
                 </div>
                 <div class="col-1">
                     <input type="hidden" value="{{$popup->popup_code}}" id="input-code-{{$popup->id}}">
-                    <button type="button" class="btn btn-primary w-100" id="button-code-{{$popup->id}}">Ссылка</button>
+                    <button type="button" class="btn_my btn_my-primary w-100" id="button-code-{{$popup->id}}">Ссылка</button>
                 </div>
                 <div class="col-3">
-                    <a role="button" href="{{route('popup_admin_edit',$popup->id)}}" class="btn btn-primary w-100">Редактировать попап</a>
+                    <a role="button" href="{{route('popup_admin_edit',$popup->id)}}" class="btn_my btn_my-primary w-100">Редактировать попап</a>
                 </div>
                 <div class="col-3">
-                    <a role="button" href="{{route('popup_admin_delete',$popup->id)}}" class="btn btn-danger w-100">Удалить попап</a>
+                    <a role="button" href="{{route('popup_admin_delete',$popup->id)}}" class="btn_my btn_my-danger w-100">Удалить попап</a>
                 </div>
             </div>
         </div>
     @endforeach
     <div class="col-12 mt-4">
-        <a role="button" href="{{route('popup_admin_create')}}" class="btn btn-primary w-100">Создать попап</a>
+        <a role="button" href="{{route('popup_admin_create')}}" class="btn_my btn_my-primary w-100">Создать попап</a>
     </div>
     <script>
         const inputCode = document.querySelectorAll('[id^=input-code-]');

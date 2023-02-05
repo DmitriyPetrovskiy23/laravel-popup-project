@@ -43,7 +43,7 @@ class PopupAdminController extends Controller
 
         $protocol=$_SERVER['PROTOCOL'] = isset($_SERVER['HTTPS']) && !empty($_SERVER['HTTPS']) ? 'https://' : 'http://';
         
-        $htmlPopup = '<div class="modal fade" id="popup_view" tabindex="-1" role="dialog" aria-labelledby="popup_view" aria-hidden="true"><div class="modal-dialog modal-dialog-centered" role="document"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="exampleModalLongTitle">'.$name.'</h5><button type="button" class="close close-popup" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button></div><div class="modal-body">'.$text.'</div><div class="modal-footer"><button type="button" class="btn btn-secondary close-popup" data-dismiss="modal">Close</button></div></div></div></div>';
+        $htmlPopup = '<div class="modal_my fade" id="popup_view" tabindex="-1" role="dialog" aria-labelledby="popup_view" aria-hidden="true"><div class="modal_my-dialog modal_my-dialog-centered" role="document"><div class="modal_my-content"><div class="modal_my-header"><h5 class="modal_my-title" id="exampleModalLongTitle">'.$name.'</h5><button type="button" class="close close-popup" data-dismiss="modal_my" aria-label="Close"><span aria-hidden="true">&times;</span></button></div><div class="modal_my-body">'.$text.'</div><div class="modal_my-footer"><button type="button" class="btn_my btn_my-secondary close-popup" data-dismiss="modal_my">Close</button></div></div></div></div>';
         
         $script = "var main = document.body;
             main.innerHTML += `".$htmlPopup."`;
