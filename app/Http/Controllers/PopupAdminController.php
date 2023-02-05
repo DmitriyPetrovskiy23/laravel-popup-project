@@ -105,7 +105,7 @@ class PopupAdminController extends Controller
                 }
             });
             xml.send();";
-        $fileName = public_path('\js\script_popup_'.$id.'.js');
+        $fileName = public_path('/js/script_popup_'.$id.'.js');
         file_put_contents($fileName,$script);
         Popup::where('popup_name',$name)->where('popup_text',$text)->update(['popup_code' => $protocol.$_SERVER['HTTP_HOST'].'/js/script_popup_'.$id.'.js']);
         return redirect()->route('popup_admin');
@@ -142,8 +142,8 @@ class PopupAdminController extends Controller
 
     public function popup_admin_delete($id){
         Popup::where('id',$id)->delete();
-        if(file_exists(public_path('\js\script_popup_'.$id.'.js'))){
-            unlink(public_path('\js\script_popup_'.$id.'.js'));
+        if(file_exists(public_path('/js/script_popup_'.$id.'.js'))){
+            unlink(public_path('/js/script_popup_'.$id.'.js'));
         }
         return redirect()->route('popup_admin');
     }
